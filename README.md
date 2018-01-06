@@ -32,15 +32,28 @@ You can try the following API's once the server is running.
 
 GET __/articles__
 
-``` curl http://localhost:8080/articles ```
+``` 
+curl http://localhost:8080/articles 
+```
 
 POST __/articles__
 
-``` curl -X POST -H "Content-Type: application/json" http://localhost:8080/articles ```
+``` 
+curl -X POST -H "Content-Type: application/json" http://localhost:8080/articles 
+```
 
 ## Running in Docker
-``` docker network create reactive-example ``` 
-``` docker run --net=reactive-example --name=article-catalog mongo ```
-``` docker run --net=reactive-example --name=article-service --env HOST=article-catalog --env PORT=27017 -p 8080:8080 webreactive-example ```
+
+``` 
+docker network create reactive-example 
+``` 
+
+``` 
+docker run --net=reactive-example --name=article-catalog mongo 
+```
+
+``` 
+docker run --net=reactive-example --name=article-service --env HOST=article-catalog --env PORT=27017 -p 8080:8080 webreactive-example 
+```
 
 
