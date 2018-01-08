@@ -8,6 +8,7 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.josalero.webreactive.entity.Article;
@@ -21,6 +22,7 @@ import reactor.core.publisher.Mono;
  *
  */
 @RestController
+@RequestMapping(value="/articles")
 public class ArticleController {
 
 	private final ArticleRepository articleRepository;
@@ -30,12 +32,12 @@ public class ArticleController {
 		this.articleRepository = articleRepository;
 	}
 
-	@GetMapping("/articles")
+	@GetMapping
 	public Flux<Article> getAll(){
 		return articleRepository.findAll();
 	}
 	
-	@PostMapping("/articles")
+	@PostMapping
 	public Mono<Article> postArticle(){
 		//Mono<Article> article = Mono.;
 		 return articleRepository.save(new Article("Article " + UUID.randomUUID().toString(), "Text " + UUID.randomUUID().toString()));
