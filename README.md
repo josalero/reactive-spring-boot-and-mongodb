@@ -39,7 +39,7 @@ curl http://localhost:8080/articles
 POST __/articles__
 
 ``` 
-curl -X POST -H "Content-Type: application/json" http://localhost:8080/articles 
+curl -X POST -H "Content-Type: application/json" http://localhost:8080/articles -v -u user:password
 ```
 
 ## Running in Docker
