@@ -1,12 +1,14 @@
-package com.josalero.webreactive.handler;
+package com.josalero.reactive.api.handler;
+
+import java.net.URI;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
-import com.josalero.webreactive.entity.Article;
-import com.josalero.webreactive.repository.ArticleRepository;
+import com.josalero.reactive.entity.Article;
+import com.josalero.reactive.repository.ArticleRepository;
 
 import reactor.core.publisher.Mono;
 
@@ -21,12 +23,16 @@ public class ApiHandler {
 		this.articleRepository = articleRepository;
 	}
 
+    public Mono<ServerResponse> findAll(ServerRequest req) {
+        return ServerResponse.ok().body(articleRepository.findAll(), Article.class);
+    }
+    
 	public Mono<ServerResponse> postArticle(final ServerRequest request) {
-		return articleRepository.save(request.bodyToMono(Article.class).block()).transform(this::serverResponse);
+		return request.bodyToMono(Article.class).log()
+				 .flatMap( article -> articleRepository.save(article))
+				 .flatMap(article -> ServerResponse.created(URI.create("/api/articles" + article.getId()))
+				 .build());
 	}
 
-    Mono<ServerResponse> serverResponse(Mono<Article> articleMono) {
-        return articleMono.flatMap(articleResponse ->
-                ServerResponse.ok().body(Mono.just(articleResponse), Article.class));
-    }
+
 }

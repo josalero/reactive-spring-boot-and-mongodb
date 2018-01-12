@@ -1,4 +1,4 @@
-package com.josalero.webreactive.security;
+package com.josalero.reactive.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
@@ -17,8 +17,10 @@ public class SecurityConfiguration {
 	        return http.csrf().disable()
 	        		.httpBasic().and()
 	            .authorizeExchange()
-	            .pathMatchers(HttpMethod.GET, "/articles/**").permitAll()
-	            .pathMatchers(HttpMethod.POST, "/articles/**").authenticated()
+	            .pathMatchers(HttpMethod.GET, "/rest/**").permitAll()
+	            .pathMatchers(HttpMethod.POST, "/rest/**").authenticated()
+	            .pathMatchers(HttpMethod.GET, "/api/**").permitAll()
+	            .pathMatchers(HttpMethod.POST, "/api/**").authenticated()
 	            //.pathMatchers("/users/{user}/**").access(this::currentUserMatchesPath)
 	            .anyExchange().permitAll()
 	            .and()

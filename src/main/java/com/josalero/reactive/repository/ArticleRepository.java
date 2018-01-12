@@ -1,11 +1,11 @@
 /**
  * 
  */
-package com.josalero.webreactive.repository;
+package com.josalero.reactive.repository;
 
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 
-import com.josalero.webreactive.entity.Article;
+import com.josalero.reactive.entity.Article;
 
 
 /**

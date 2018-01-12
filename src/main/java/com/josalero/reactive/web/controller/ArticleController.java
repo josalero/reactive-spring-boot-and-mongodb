@@ -1,9 +1,8 @@
 /**
  * 
  */
-package com.josalero.webreactive.controller;
+package com.josalero.reactive.web.controller;
 
-import java.time.Duration;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +11,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.josalero.webreactive.entity.Article;
-import com.josalero.webreactive.repository.ArticleRepository;
+import com.josalero.reactive.entity.Article;
+import com.josalero.reactive.repository.ArticleRepository;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -26,7 +24,7 @@ import reactor.core.publisher.Mono;
  *
  */
 @RestController
-@RequestMapping(value="/articles")
+@RequestMapping(value="/rest/articles")
 public class ArticleController {
 
 	private final ArticleRepository articleRepository;

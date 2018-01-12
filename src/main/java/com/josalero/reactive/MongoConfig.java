@@ -1,4 +1,4 @@
-package com.josalero.webreactive;
+package com.josalero.reactive;
 
 import org.springframework.data.mongodb.config.AbstractReactiveMongoConfiguration;
 import org.springframework.data.mongodb.repository.config.EnableReactiveMongoRepositories;
@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.repository.config.EnableReactiveMongoRep
 import com.mongodb.reactivestreams.client.MongoClient;
 import com.mongodb.reactivestreams.client.MongoClients;
 
-@EnableReactiveMongoRepositories(basePackages= {"com.josalero.webreactive"})
+@EnableReactiveMongoRepositories
 public class MongoConfig extends AbstractReactiveMongoConfiguration {
 
 

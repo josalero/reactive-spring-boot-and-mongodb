@@ -1,4 +1,4 @@
-package com.josalero.webreactive;
+package com.josalero.reactive;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

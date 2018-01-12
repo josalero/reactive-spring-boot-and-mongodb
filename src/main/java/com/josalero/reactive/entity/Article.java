@@ -1,4 +1,4 @@
-package com.josalero.webreactive.entity;
+package com.josalero.reactive.entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -29,7 +29,7 @@ public class Article {
 		this.id = id;
     }
     
-    private String getId() {
+    public String getId() {
 		return id;
 	}
     
